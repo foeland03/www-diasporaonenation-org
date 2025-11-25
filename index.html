@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diaspora One Nation – Haitian Diaspora Support Network</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Diaspora One Nation connects Haitians living abroad with resources, support, and community: legal, medical, financial, mental health, addiction recovery, and return-to-Haiti assistance."
+  />
+  <style>
+    :root {
+      --blue: #0052a5;
+      --red: #d62828;
+      --gold: #f4b41a;
+      --dark: #0b1726;
+      --light: #f7f7f9;
+      --card-bg: #ffffff;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 14px 35px rgba(0, 0, 0, 0.12);
+      --shadow-light: 0 8px 20px rgba(0, 0, 0, 0.08);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #0b2a4f 0, #040814 55%);
+      color: #fdfdfd;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .layout {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(1, 10, 30, 0.93),
+        rgba(1, 10, 30, 0.85),
+        transparent
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 40%;
+      background: conic-gradient(
+        from 210deg,
+        var(--blue),
+        var(--red),
+        var(--gold),
+        var(--blue)
+      );
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.06em;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      gap: 0.12rem;
+    }
+
+    .nav-title span:first-child {
+      font-weight: 700;
+      font-size: 1.08rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .nav-title span:last-child {
+      font-size: 0.78rem;
+      opacity: 0.75;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 0.2rem 0;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold), var(--red));
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.45rem 1rem;
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      transition: transform 0.1s ease-out, box-shadow 0.1s ease-out,
+        background 0.15s ease-out, border-color 0.15s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue), var(--red));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-outline {
+      border-color: rgba(255, 255, 255, 0.28);
+      background: radial-gradient(circle at top left, #0e355f, #020816);
+    }
+
+    .btn span.icon {
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-toggle {
+      display: none;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 999px;
+      background: #fff;
+      margin: 3px 0;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.5rem 1.2rem;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      padding-top: 2.5rem;
+      padding-bottom: 1.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: radial-gradient(circle at top left, #153c71, #050b16);
+      margin-bottom: 0.8rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #26d07c;
+      box-shadow: 0 0 8px rgba(38, 208, 124, 0.9);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4vw, 2.7rem);
+      line-height: 1.08;
+      margin-bottom: 0.7rem;
+    }
+
+    .accent-gradient {
+      background: linear-gradient(120deg, #ffffff, var(--gold), #ffd98a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 0.98rem;
+      max-width: 34rem;
+      opacity: 0.9;
+    }
+
+    .hero-actions {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .hero-meta {
+      margin-top: 1.3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    .hero-meta span strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #183b71, #050914);
+      border-radius: var(--radius-xl);
+      padding: 1.3rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background-image: radial-gradient(
+          circle at 20% 0%,
+          rgba(244, 180, 26, 0.3),
+          transparent 60%
+        ),
+        radial-gradient(
+          circle at 90% 40%,
+          rgba(0, 82, 165, 0.4),
+          transparent 60%
+        );
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.75rem;
+    }
+
+    .pill {
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(7, 16, 33, 0.85);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    .mini-card {
+      background: rgba(7, 16, 33, 0.9);
+      border-radius: 14px;
+      padding: 0.7rem 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: var(--shadow-light);
+    }
+
+    .mini-card h4 {
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.15rem;
+    }
+
+    .mini-tag {
+      padding: 0.1rem 0.4rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.3);
+      font-size: 0.68rem;
+      opacity: 0.9;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.1rem;
+      margin-top: 0.9rem;
+      font-size: 0.75rem;
+      align-items: center;
+    }
+
+    .stat-number {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .hero-ribbon {
+      position: absolute;
+      right: -8px;
+      top: 12px;
+      transform: rotate(7deg);
+      background: linear-gradient(135deg, var(--gold), var(--red));
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.45);
+    }
+
+    /* SECTION HEADERS */
+    .section-header {
+      margin-bottom: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      align-items: flex-end;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      letter-spacing: 0.03em;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      opacity: 0.78;
+      max-width: 28rem;
+    }
+
+    /* CARD LAYOUTS */
+    .card-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.1rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #15223b, #050814);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: var(--shadow-light);
+      font-size: 0.9rem;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .card h3 span.icon {
+      font-size: 1.1rem;
+    }
+
+    .card p {
+      font-size: 0.86rem;
+      opacity: 0.9;
+    }
+
+    .card ul {
+      margin-top: 0.4rem;
+      padding-left: 1.2rem;
+      font-size: 0.83rem;
+      opacity: 0.9;
+    }
+
+    .card ul li {
+      margin-bottom: 0.25rem;
+    }
+
+    .card-footer {
+      margin-top: 0.45rem;
+      font-size: 0.78rem;
+      opacity: 0.78;
+    }
+
+    /* SPECIAL SECTIONS */
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 1.5rem;
+    }
+
+    .panel {
+      background: radial-gradient(circle at top left, #141f36, #040714);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow-light);
+      font-size: 0.9rem;
+    }
+
+    .panel h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .panel p {
+      font-size: 0.86rem;
+      opacity: 0.92;
+      margin-bottom: 0.3rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+    }
+
+    .pill-list span {
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    /* SIMPLE FORMS */
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .form label {
+      display: block;
+      font-size: 0.78rem;
+      margin-bottom: 0.2rem;
+      opacity: 0.9;
+    }
+
+    .form input,
+    .form textarea,
+    .form select {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(2, 7, 20, 0.9);
+      color: #fdfdfd;
+      outline: none;
+      font: inherit;
+      font-size: 0.8rem;
+    }
+
+    .form input:focus,
+    .form textarea:focus,
+    .form select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 1px rgba(244, 180, 26, 0.6);
+    }
+
+    .form textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .form small {
+      font-size: 0.7rem;
+      opacity: 0.7;
+    }
+
+    /* PARTNERS */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+    }
+
+    .chip {
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      border: 1px dashed rgba(255, 255, 255, 0.28);
+      background: rgba(5, 14, 33, 0.9);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      background: radial-gradient(circle at top, #0a1833, #03040b);
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.2rem 1.2rem 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.3rem;
+      font-size: 0.78rem;
+    }
+
+    .footer-inner p {
+      opacity: 0.78;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .footer-badge {
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.72rem;
+      opacity: 0.82;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .lang-switch button {
+      border: none;
+      background: transparent;
+      color: inherit;
+      font-size: 0.75rem;
+      opacity: 0.7;
+      cursor: pointer;
+      padding: 0.12rem 0.3rem;
+    }
+
+    .lang-switch button.active {
+      opacity: 1;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .two-column {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: minmax(0, 1fr);
+        text-align: left;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .nav-menu-open .nav-links,
+      .nav-menu-open .nav-cta {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        padding: 0.8rem 1.2rem 1rem;
+        background: radial-gradient(circle at top, #0d1f3c, #020413);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .nav-menu-open .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 1.5rem;
+      }
+
+      .section {
+        padding: 2rem 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="layout">
+  <!-- NAVBAR -->
+  <header>
+    <div class="nav" id="nav">
+      <div class="nav-left">
+        <div class="nav-logo-mark">DON</div>
+        <div class="nav-title">
+          <span>Diaspora One Nation</span>
+          <span>Haitians helping Haitians worldwide</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#resources">Resources</a>
+        <a href="#mental-health">Mental Health</a>
+        <a href="#stories">Stories</a>
+        <a href="#expats">Return to Haiti</a>
+        <a href="#partners">Non-profits</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="btn btn-outline" onclick="scrollToId('get-help')">
+          <span class="icon">🤝</span>
+          <span>Get Help</span>
+        </button>
+        <button class="btn btn-primary" onclick="scrollToId('get-involved')">
+          <span class="icon">⭐</span>
+          <span>Get Involved</span>
+        </button>
+      </div>
+
+      <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero" id="home">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>Global Haitian Diaspora Support Network</span>
+        </div>
+
+        <h1>
+          One community, one story,
+          <span class="accent-gradient">one nation without borders.</span>
+        </h1>
+
+        <p>
+          Diaspora One Nation connects Haitians living abroad with trusted
+          resources, non-profit partners, and a safe space to share real-life
+          stories. Get help with basic needs, legal questions, medical and
+          financial guidance, mental health, addiction recovery, and planning
+          a return to Haiti.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="scrollToId('get-help')">
+            <span class="icon">📲</span>
+            <span>I need support</span>
+          </button>
+          <button class="btn btn-outline" onclick="scrollToId('get-involved')">
+            <span class="icon">🌍</span>
+            <span>I want to help</span>
+          </button>
+        </div>
+
+        <div class="hero-meta">
+          <span>
+            <strong>For Haitians abroad & deportees</strong>
+            Resources, connection, and hope.
+          </span>
+          <span>
+            <strong>Basic needs, legal, medical, financial</strong>
+            Powered by trusted non-profit organizations.
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-card">
+          <div class="hero-card-inner">
+            <div class="hero-ribbon">Safe • Confidential • Free</div>
+            <div class="pill-row">
+              <div class="pill">Legal & immigration help</div>
+              <div class="pill">Medical & mental health support</div>
+              <div class="pill">Financial literacy</div>
+              <div class="pill">Return-to-Haiti guidance</div>
+            </div>
+
+            <div class="hero-grid">
+              <div class="mini-card">
+                <h4>Basic Needs & Social Support</h4>
+                <p>Find food, shelter, and emergency assistance in your area.</p>
+                <div class="mini-tags">
+                  <span class="mini-tag">Food banks</span>
+                  <span class="mini-tag">Shelters</span>
+                  <span class="mini-tag">Community centers</span>
+                </div>
+              </div>
+              <div class="mini-card">
+                <h4>Mental Health & Recovery</h4>
+                <p>Speak openly about depression, trauma, drugs, and alcohol.</p>
+                <div class="mini-tags">
+                  <span class="mini-tag">Counseling</span>
+                  <span class="mini-tag">Support groups</span>
+                  <span class="mini-tag">Hotlines</span>
+                </div>
+              </div>
+              <div class="mini-card">
+                <h4>Legal & Immigration</h4>
+                <p>Connect with organizations offering legal guidance.</p>
+                <div class="mini-tags">
+                  <span class="mini-tag">Status</span>
+                  <span class="mini-tag">Deportation</span>
+                  <span class="mini-tag">Rights</span>
+                </div>
+              </div>
+              <div class="mini-card">
+                <h4>Return to Haiti & Deportees</h4>
+                <p>Information, planning, and financial support back home.</p>
+                <div class="mini-tags">
+                  <span class="mini-tag">Housing</span>
+                  <span class="mini-tag">Jobs</span>
+                  <span class="mini-tag">Reintegration</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero-stats">
+              <div>
+                <div class="stat-number">🌐</div>
+                <div>Built by Haitians abroad for Haitians everywhere.</div>
+              </div>
+              <div>
+                <div class="stat-number">24/7</div>
+                <div>Access to resources and stories from the diaspora.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="section" id="resources">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Core support & resources</h2>
+          <p class="section-subtitle">
+            We partner with non-profit organizations to help you meet basic
+            needs, understand your rights, care for your health, and build a
+            stable financial future.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-row">
+        <article class="card">
+          <h3><span class="icon">🍲</span> Basic needs & emergency help</h3>
+          <p>
+            Find organizations that help with food, housing, transportation,
+            and essential daily needs in the country where you live.
+          </p>
+          <ul>
+            <li>Food assistance & community kitchens</li>
+            <li>Temporary shelter & housing support</li>
+            <li>Clothing, hygiene kits, and transportation</li>
+          </ul>
+          <div class="card-footer">
+            <strong>Coming soon:</strong> search by city or country to locate
+            partners near you.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3><span class="icon">⚖️</span> Legal & immigration guidance</h3>
+          <p>
+            We connect you with non-profits and legal clinics that offer
+            guidance about immigration, deportation, and your rights.
+          </p>
+          <ul>
+            <li>Know your rights as an immigrant or expat</li>
+            <li>Deportation & detention information</li>
+            <li>Referrals to low-cost or free legal clinics</li>
+          </ul>
+          <div class="card-footer">
+            Note: Diaspora One Nation does not replace a lawyer. We help you
+            find qualified legal support.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3><span class="icon">🩺</span> Medical & healthy living</h3>
+          <p>
+            Access information about clinics, health education, and how to
+            care for your body in a new country while honoring Haitian culture.
+          </p>
+          <ul>
+            <li>Low-cost clinic and hospital directories</li>
+            <li>Health education in simple language</li>
+            <li>Nutrition and healthy lifestyle tips</li>
+          </ul>
+          <div class="card-footer">
+            Always consult a licensed health professional for personal medical
+            decisions.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3><span class="icon">💰</span> Financial education & stability</h3>
+          <p>
+            Learn how to manage money abroad, support family in Haiti, and
+            plan for long-term stability.
+          </p>
+          <ul>
+            <li>Budgeting & saving basics</li>
+            <li>Sending money safely back home</li>
+            <li>Understanding credit, debt, and banking</li>
+          </ul>
+          <div class="card-footer">
+            We provide educational content only, not investment or tax advice.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MENTAL HEALTH & ADDICTION -->
+    <section class="section" id="mental-health">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Mental health, drugs & alcohol</h2>
+          <p class="section-subtitle">
+            You are not alone. This platform gives space to talk honestly about
+            anxiety, depression, trauma, drugs, and alcohol addiction—with
+            dignity and respect.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="panel">
+          <h3>Safe space for real stories</h3>
+          <p>
+            We invite members of the Haitian diaspora to share their mental
+            health journeys—struggles, victories, relapses, and healing—so
+            others can feel seen and understood.
+          </p>
+          <p>
+            All stories are moderated to protect privacy, dignity, and
+            community safety. You can share anonymously if you prefer.
+          </p>
+
+          <form class="form" id="story-form">
+            <div class="form-row">
+              <div style="flex: 1 1 140px;">
+                <label for="story-name">Name (optional)</label>
+                <input type="text" id="story-name" placeholder="You can stay anonymous" />
+              </div>
+              <div style="flex: 1 1 140px;">
+                <label for="story-topic">Main topic</label>
+                <select id="story-topic">
+                  <option value="">Select…</option>
+                  <option>Depression / anxiety</option>
+                  <option>Trauma / PTSD</option>
+                  <option>Alcohol addiction</option>
+                  <option>Drugs addiction</option>
+                  <option>Return to Haiti challenges</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="story-content">Your story</label>
+              <textarea id="story-content" placeholder="Share what you feel comfortable sharing…"></textarea>
+              <small>
+                Do not share full names, addresses, or sensitive details that could put you or others at risk.
+              </small>
+            </div>
+
+            <button type="button" class="btn btn-outline" onclick="alert('This is a demo. Connect this form to your backend or email.')">
+              <span class="icon">📨</span>
+              <span>Submit story (demo)</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h3>Support & crisis resources</h3>
+          <p>
+            Diaspora One Nation is not an emergency service. If you or someone
+            you know is in immediate danger, please contact local emergency
+            services or a crisis hotline in your country.
+          </p>
+          <ul style="font-size:0.82rem; opacity:0.9; margin:0.4rem 0 0.5rem 1.1rem;">
+            <li>Talk to a doctor, therapist, or counselor where you live.</li>
+            <li>Reach out to trusted family, friends, or community leaders.</li>
+            <li>Use national hotlines for suicide prevention or addiction support.</li>
+          </ul>
+
+          <div class="pill-list" style="margin-top:0.6rem;">
+            <span>Anonymous discussions</span>
+            <span>Peer support groups</span>
+            <span>Referrals to professionals</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORIES -->
+    <section class="section" id="stories">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Stories from the diaspora</h2>
+          <p class="section-subtitle">
+            Real experiences from Haitians living abroad—celebrating victories,
+            facing injustice, rebuilding life after deportation, and finding
+            new paths forward.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-row">
+        <article class="card">
+          <h3><span class="icon">🛫</span> “I thought deportation was the end”</h3>
+          <p>
+            After 18 years abroad, I was sent back to Haiti with nothing. A
+            small non-profit helped me find housing and a job, and I slowly
+            started again.
+          </p>
+          <div class="card-footer">
+            <em>Sample story placeholder.</em> Replace this with real stories
+            from your community.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3><span class="icon">💬</span> “Talking about depression saved my life”</h3>
+          <p>
+            I grew up hearing that mental illness was weakness. When I finally
+            talked about my depression, I realized so many of us were silently
+            suffering.
+          </p>
+          <div class="card-footer">
+            <em>Sample story placeholder.</em> Invite members to share in
+            Haitian Creole, French, or English.
+          </div>
+        </article>
+
+        <article class="card">
+          <h3><span class="icon">🏥</span> “Finding a clinic that understood my culture”</h3>
+          <p>
+            It was hard to explain my health issues in another language. A
+            community clinic connected me with a Haitian Creole speaking
+            provider.
+          </p>
+          <div class="card-footer">
+            <em>Sample story placeholder.</em> Highlight real organizations and
+            resources here.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPATS & DEPORTEES -->
+    <section class="section" id="expats">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Expats returning home & deportees</h2>
+          <p class="section-subtitle">
+            Whether you are planning to go back to Haiti by choice or have
+            been deported, this platform helps you understand what to expect,
+            prepare, and find support on the ground.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-column">
+        <div class="panel">
+          <h3>Planning your return to Haiti</h3>
+          <p>
+            We collect practical information for expats who want to move back
+            to Haiti: documentation, health planning, safety, housing, and
+            ways to contribute to local communities.
+          </p>
+          <ul style="font-size:0.84rem; margin:0.5rem 0 0.7rem 1.1rem;">
+            <li>Checklist for moving back to Haiti</li>
+            <li>How to prepare financially and emotionally</li>
+            <li>Connecting with local organizations and churches</li>
+            <li>Ideas for investing and building sustainable projects</li>
+          </ul>
+          <div class="pill-list">
+            <span>Return planning guides</span>
+            <span>Local partner contacts</span>
+            <span>Safety & health tips</span>
+          </div>
+        </div>
+
+        <div class="panel" id="get-help">
+          <h3>Support for deportees</h3>
+          <p>
+            Deportation is traumatic. Diaspora One Nation works with partners
+            to help deportees land with dignity: basic needs, counseling, and
+            small financial support where possible.
+          </p>
+
+          <form class="form" id="deportee-form">
+            <div class="form-row">
+              <div style="flex: 1 1 150px;">
+                <label for="dep-name">Full name</label>
+                <input type="text" id="dep-name" placeholder="Your name" />
+              </div>
+              <div style="flex: 1 1 150px;">
+                <label for="dep-country">Country you were deported from</label>
+                <input type="text" id="dep-country" placeholder="e.g. USA, Canada, France" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div style="flex:1 1 150px;">
+                <label for="dep-location">Current location in Haiti</label>
+                <input type="text" id="dep-location" placeholder="City / area" />
+              </div>
+              <div style="flex:1 1 150px;">
+                <label for="dep-needs">Main type of support</label>
+                <select id="dep-needs">
+                  <option value="">Select…</option>
+                  <option>Food & shelter</option>
+                  <option>Medical care</option>
+                  <option>Mental health support</option>
+                  <option>Job & income</option>
+                  <option>Legal / documentation</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="dep-message">Tell us about your situation</label>
+              <textarea id="dep-message" placeholder="Share only what you are comfortable sharing…"></textarea>
+              <small>
+                This is a demo form. When your site is live, connect this form
+                to a secure email or database to review requests.
+              </small>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="alert('Demo only. Connect this form to your backend or email.')">
+              <span class="icon">🕊️</span>
+              <span>Request support (demo)</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section class="section" id="partners">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title">Non-profit & community partners</h2>
+          <p class="section-subtitle">
+            Diaspora One Nation will list and highlight organizations that
+            serve Haitians around the world—so people can quickly find trusted
+            help where they live.
+          </p>
+        </div>
+      </div>
+
+      <div class="card-row">
+        <article class="card">
+          <h3><span class="icon">🤝</span> Partner directory</h3>
+          <p>
+            A searchable directory of non-profits, churches, and community
+            groups that support Haitians with basic needs, legal help, health,
+            and more.
+          </p>
+          <ul>
+            <li>Filter by country, city, or type of service</li>
+            <li>Verified organizations and contact details</li>
+            <li>Information on language support (e.g. Kreyòl, French)</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3><span class="icon">📌</span> Featured organizations</h3>
+          <p>
+            Highlight partners that are doing outstanding work supporting the
+            diaspora and deportees returning to Haiti.
+          </p>
+          <div class="chip-row" style="margin-top:0.5rem;">
+            <div class="chip">Legal clinics & advocacy groups</div>
+            <div class="chip">Health & mental health NGOs</div>
+            <div class="chip">Faith-based organizations</div>
+            <div class="chip">Grassroots community groups</div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GET INVOLVED & CONTACT -->
+    <section class="section" id="get-involved">
+      <div class="two-column">
+        <div class="panel">
+          <h3>Get involved</h3>
+          <p>
+            This project belongs to all of us. Haitians living abroad,
+            Haitians in Haiti, and friends of Haiti are all welcome to help
+            build Diaspora One Nation.
+          </p>
+
+          <ul style="font-size:0.84rem; margin:0.5rem 0 0.7rem 1.1rem;">
+            <li>Volunteer as a moderator or translator</li>
+            <li>Share your professional skills (legal, medical, financial, tech)</li>
+            <li>Help verify organizations in your city or country</li>
+            <li>Support financially when donation options are available</li>
+          </ul>
+
+          <div class="pill-list">
+            <span>Moderation</span>
+            <span>Translation (Kreyòl / FR / EN)</span>
+            <span>Tech & design</span>
+            <span>Outreach & partnership</span>
+          </div>
+        </div>
+
+        <div class="panel" id="contact">
+          <h3>Contact Diaspora One Nation</h3>
+          <p>
+            Send us a message if you need help, want to collaborate, or would
+            like to list your organization on this platform.
+          </p>
+
+          <form class="form" id="contact-form">
+            <div class="form-row">
+              <div style="flex:1 1 150px;">
+                <label for="contact-name">Full name</label>
+                <input type="text" id="contact-name" placeholder="Your name" />
+              </div>
+              <div style="flex:1 1 150px;">
+                <label for="contact-email">Email</label>
+                <input type="email" id="contact-email" placeholder="you@example.com" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div style="flex:1 1 150px;">
+                <label for="contact-role">I am…</label>
+                <select id="contact-role">
+                  <option value="">Select…</option>
+                  <option>Haitian living abroad</option>
+                  <option>Deportee in Haiti</option>
+                  <option>Family member</option>
+                  <option>Non-profit representative</option>
+                  <option>Other supporter</option>
+                </select>
+              </div>
+              <div style="flex:1 1 150px;">
+                <label for="contact-topic">Reason</label>
+                <select id="contact-topic">
+                  <option value="">Select…</option>
+                  <option>I need help</option>
+                  <option>I want to volunteer</option>
+                  <option>List my organization</option>
+                  <option>Partnership / media</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" placeholder="How can we support or collaborate with you?"></textarea>
+            </div>
+
+            <button type="button" class="btn btn-outline" onclick="alert('Demo only. Connect this form to your backend or email.')">
+              <span class="icon">📧</span>
+              <span>Send message (demo)</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <p>
+          &copy; <span id="year"></span> Diaspora One Nation. All rights
+          reserved. This platform is created to support Haitians living abroad,
+          expats returning home, and deportees rebuilding life in Haiti.
+        </p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-badge">diasporaonenation.org</div>
+        <div class="lang-switch">
+          <button class="active" type="button">EN</button>
+          <button type="button">Kreyòl</button>
+          <button type="button">FR</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // simple helpers
+  function scrollToId(id) {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function toggleMenu() {
+    document.getElementById("nav").classList.toggle("nav-menu-open");
+  }
+
+  // set year
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
